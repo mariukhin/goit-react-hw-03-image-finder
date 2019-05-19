@@ -62,7 +62,7 @@ img {
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
 }
 
-.gallery-item img {
+.galleryItemImg {
   height: 260px;
   object-fit: cover;
 }
@@ -144,4 +144,26 @@ img {
 .button:hover,
 .button:focus {
   background-color: #1f65d6;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px;
+  max-width: 780px;
+  width: 100%;
+  background-color: #fff;
 }
