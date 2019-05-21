@@ -34,7 +34,6 @@ export default class App extends Component {
 
   render() {
     const { pics, isLoading, error } = this.state;
-    // const { genres } = this.props;
     return (
       <div>
         <SearchForm onSubmit={this.formSubmit} />
