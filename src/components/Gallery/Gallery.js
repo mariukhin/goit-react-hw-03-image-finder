@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import GalleryItem from '../GalleryItem/GalleryItem';
+import styles from './Gallery.module.css';
 
 const Gallery = ({ cards }) => (
-  <ul className="gallery">
+  <ul className={styles.gallery}>
     {cards.map(card => (
-      <li className="gallery-item" key={card.id}>
-        <GalleryItem {...card} />
-      </li>
+      <GalleryItem key={card.id} {...card} />
     ))}
   </ul>
 );

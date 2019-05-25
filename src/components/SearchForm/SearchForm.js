@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-// import styles from './SearchForm.module.css';
+import styles from './SearchForm.module.css';
 
 export default class SearchForm extends Component {
   state = {
@@ -27,9 +27,9 @@ export default class SearchForm extends Component {
   render() {
     const { inputVal } = this.state;
     return (
-      <form className="search-form" onSubmit={this.handleSubmit}>
+      <form className={styles.searchForm} onSubmit={this.handleSubmit}>
         <input
-          // className={styles.nameInput}
+          className={styles.searchInput}
           type="text"
           autoComplete="off"
           placeholder="Search images..."

@@ -1,6 +1,8 @@
+/* elslint-disable */
 import React, { Component, createRef } from 'react';
 import LazyLoad from 'react-lazy-load';
 import PropTypes from 'prop-types';
+import styles from './Modal.module.css';
 
 export default class Modal extends Component {
   static propTypes = {
@@ -40,11 +42,13 @@ export default class Modal extends Component {
     const { imgUrl } = this.props;
     return (
       <div
-        className="overlay"
+        className={styles.overlay}
         ref={this.backdropRef}
+        role="presentation"
         onClick={this.handleBackdropClick}
+        onKeyDown={this.handleKeyPress}
       >
-        <div className="modal">
+        <div className={styles.modal}>
           <LazyLoad>
             <img src={imgUrl} alt="img" />
           </LazyLoad>
