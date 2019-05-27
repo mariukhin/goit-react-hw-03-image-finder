@@ -19,12 +19,13 @@ export default class App extends Component {
   };
 
   componentDidUpdate(prevProps, prevState) {
-    const { page: prevPage } = prevState;
+    const { page: prevPage, pics } = prevState;
     const { page: nextPage, inputVal } = this.state;
 
-    if (prevPage !== nextPage) {
+    if (prevPage !== nextPage && pics.length >= 12) {
       this.fetchItems(inputVal);
     }
+    window.scrollTo({ left: 0, top: 1300 * nextPage, behavior: 'smooth' });
   }
 
   reset = () => {
@@ -39,14 +40,17 @@ export default class App extends Component {
   };
 
   fetchItems = inputVal => {
-    const { page } = this.state;
+    const { pics, page } = this.state;
     fetchPics(inputVal, page)
-      .then(pics => {
-        this.setState(prevState => ({
-          pics: [...prevState.pics, ...mapper(pics)],
-        }));
+      .then(newPics => {
+        this.setState({
+          pics: [...pics, ...mapper(newPics)],
+        });
       })
-      .catch(error => this.setState({ error }))
+      .catch(error => {
+        this.reset();
+        this.setState({ error });
+      })
       .finally(() => this.setState({ isLoading: false, isLoadMore: true }));
   };
 
