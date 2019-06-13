@@ -1,6 +1,6 @@
 /*eslint-disable*/
-export default function mapper(pics) {
-  return pics.map(
+export const mapper = pics =>
+  pics.map(
     item =>
       (item = {
         id: item.id,
@@ -12,4 +12,3 @@ export default function mapper(pics) {
         downloads: item.downloads,
       }),
   );
-}

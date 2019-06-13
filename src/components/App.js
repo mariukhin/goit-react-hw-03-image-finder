@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import mapper from '../services/helper';
+import { mapper } from '../services/helper';
 import styles from './stylesApp.css';
 import SearchForm from './SearchForm/SearchForm';
 import ErrorNotification from './ErrorNotification/ErrorNotification';
@@ -17,6 +17,10 @@ export default class App extends Component {
     isLoadMore: false,
     error: null,
   };
+
+  componentDidMount() {
+    this.fetchItems('popular');
+  }
 
   componentDidUpdate(prevProps, prevState) {
     const { page: prevPage, pics } = prevState;
